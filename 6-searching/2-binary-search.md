@@ -19,7 +19,7 @@ Suppose we have 16 length array. Is we perform binary search, we half the array 
 ## Implementation
 ```javascript
 //Using recursion
-function binarySearch(array, target, left = 0, right = array.length - 1) {
+function binarySort(array, target, left = 0, right = array.length - 1) {
     // find the middle index
     let middle = Math.floor((left + right) / 2)
     if (array[middle] == target) {
