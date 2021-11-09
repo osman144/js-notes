@@ -39,7 +39,7 @@ function binarySort(array, target, left = 0, right = array.length - 1) {
 function binarySearch(array, target) {
     // Set inital pointers
     let left = 0;
-    let right = array.length;
+    let right = array.length-1;
     while (true) {
         let middle = Math.floor((left + right) / 2);
         if (array[middle] === target) return middle;
