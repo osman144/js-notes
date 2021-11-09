@@ -5,19 +5,15 @@ Given a string and a target string, find if the target string is a substring of 
 ```javascript
 // Loop over both the strings and compare charecter by charecter
 function stringSearch(string, target) {
-    let counter = 0
-    let isSubstring = false;
-    for (let i = 0; i < string.length; i++) {
-        isSubstring = true;
-        for (let j = 0; j < target.length; j++) {
-            if (string[i + j] != target[j]) {
-                isSubstring = false;
-                break;
-            }
+    let count = 0
+    for(let i = 0; i < string.length; i++) {
+        for(let j = 0; j < target.length; j++) {
+            if(string[i + j] !== target[j]) break;
+            
+            if(j === target.length-1) count++;
         }
-        if (isSubstring) counter++;
     }
-    return counter;
+    return count;
 }
 ```
 
