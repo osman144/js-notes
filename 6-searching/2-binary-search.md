@@ -9,7 +9,7 @@ Requires sorted array. Unlike linear search which eliminates one number at a tim
 
 	Average: O(log(n))
 
-	Best: O(log(n))
+	Worst: O(log(n))
 
 2. Space: O(1)
 
