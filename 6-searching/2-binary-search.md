@@ -22,17 +22,12 @@ Suppose we have 16 length array. Is we perform binary search, we half the array 
 function binarySort(array, target, left = 0, right = array.length - 1) {
     // find the middle index
     let middle = Math.floor((left + right) / 2)
-    if (array[middle] == target) {
-        return middle;
-    } else if (right == left) {
-        return -1;
-    } else if (target < array[middle]) {
-        // target is in the left array
-        return binarySort(array, target, left, middle - 1);
-    } else {
-        // target is in the right array
-        return binarySort(array, target, middle + 1, right);
-    }
+    if (array[middle] == target) return middle;
+    if (right == left) return -1;
+    if (target < array[middle]) return binarySort(array, target, left, middle - 1);
+    
+    // target is in the right array
+    return binarySort(array, target, middle + 1, right);
 }
 
 //Using While Loop
@@ -40,17 +35,21 @@ function binarySearch(array, target) {
     // Set inital pointers
     let left = 0;
     let right = array.length-1;
-    while (true) {
-        let middle = Math.floor((left + right) / 2);
-        if (array[middle] === target) return middle;
-        if (array.length === 1) return -1;
+    let middle = Math.floor((left + right) / 2);
+    
+    // While middle does not equal target
+    while (arr[middle !== target && left <== right){
         if (array[middle] < target) {
             // target belongs to the right;
             left = middle + 1;
         } else {
             // target belongs to the left
-            right = middle - 1
+            right = middle - 1;
         }
+	middle = Math.floor((left + right) / 2);
     }
+    if(arr[middle] === elem) return middle;
+    // return -1 if no value found
+    return -1
 }
 ```
