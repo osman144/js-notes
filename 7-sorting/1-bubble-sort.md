@@ -1,5 +1,7 @@
 # Bubble Sort
-Uses two for loop. In every pass, the largest value of the unsorted array is added to  the sorted array.
+A sorting algorithm where the largest values bubble up to the top.
+
+Uses two for loops. In every pass, the largest value of the unsorted array is added to  the sorted array.
 
 ## Complexity
 1. Time
@@ -21,9 +23,10 @@ Uses two for loop. In every pass, the largest value of the unsorted array is add
 function bubbleSort(array) {
     for (let i = 0; i < array.length; i++)
         for (j = array.length - 1; j > i; j--)
-            if (array[j] < array[j - 1])
-                [array[j], array[j - 1]] = [array[j - 1], array[j]];
+            if (array[j] > array[j + 1]){
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
             // ES6 Swap ^
+	    }
 }
 ```
 
