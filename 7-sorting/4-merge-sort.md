@@ -12,6 +12,11 @@ Works on divide and conquer algorithm. General strategy is to keep on splitting 
 
 > Coding Pattern: Avoid while true with breaks inside as it makes the code harder to understand.
 
+### Tips
+- In order to implement merge sort, useful to first implement a function responsible for merging two sorted arrays.
+- Given two arrays which are sorted, the helper function should create a new array which is also sorted, and consists of all of the elements in the two input arrays.
+- The function should run in O(n+m) time and O(n+m) space and should not modify the parameters passed to it. 
+
 ### Implementation
 ```javascript
 function mergeSort(array) {
