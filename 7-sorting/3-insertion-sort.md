@@ -1,4 +1,5 @@
 # Insertion Sort
+Builds up the sort by gradually creating a larger left half which is always sorted. 
 We take one element and insert it in the right place in the sorted part. One advantage over bubble and selection sort is that the it is good when data is getting appended over time.
 
 ## Complexity
