@@ -21,28 +21,32 @@ Uses two for loops. In every pass, the largest value of the unsorted array is ad
 ## Implemantation
 ```javascript
 function bubbleSort(array) {
-    for (let i = 0; i < array.length; i++)
-        for (j = array.length - 1; j > i; j--)
+    for (let i = 0; i < array.length; i++){
+        for (let j = array.length - 1; j > i; j--){
             if (array[j] > array[j + 1]){
                 [array[j], array[j + 1]] = [array[j + 1], array[j]];
             // ES6 Swap ^
 	    }
+	}
+    }
+    return array;
 }
 ```
 
 ```javascript
 // Optimized
 function bubbleSort(array) {
-    let didDoSwapping = false;
+    let noSwaps;
     for (let i = 0; i < array.length; i++) {
-        didDoSwapping = false;
-        for (j = array.length - 1; j > i; j--) {
+        noSwaps = true;
+        for (let j = array.length - 1; j > i; j--) {
             if (array[j] < array[j - 1]) {
                 [array[j], array[j - 1]] = [array[j - 1], array[j]];
-                didDoSwapping = true;
+                noSwaps = false;
             }
         }
-        if (!didDoSwapping) break;
+        if (noSwaps) break;
     }
+    return array;
 }
 ```
