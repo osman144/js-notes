@@ -19,26 +19,26 @@ Works on divide and conquer algorithm. General strategy is to keep on splitting 
 
 ### Implementation
 ```javascript
-function mergeSort(array) {
-    if (array.length <= 1) return array;
-    let midpoint = Math.floor(array.length / 2)
-    let left = mergeSort(array.slice(0, midpoint));
-    let right = mergeSort(array.slice(midpoint));
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+    let mid = Math.floor(arr.length/2)
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
     return mergeArrays(left, right);
 }
 
-function mergeArrays(array1, array2) {
+function mergeArrays(arr1, arr2) {
     // Given two functions, this function constructs a single sorted array
-    let sortedArray = [],
-        pointer1 = 0,
-        pointer2 = 0;
-    while (pointer1 != array1.length && pointer2 != array2.length)
-        if (array1[pointer1] > array2[pointer2]) {
-            sortedArray.push(array2[pointer2]);
-            pointer2++;
+    let sortedArr = [];
+    let i = 0;
+    let j = 0;
+    while (i < arr1.length && j < arr2.length)
+        if (arr2[j] > arr1[i]) {
+            sortedArr.push(arr1[i]);
+            i++;
         } else {
-            sortedArray.push(array1[pointer1]);
-            pointer1++;
+            sortedArr.push(arr2[j]);
+            j++;
         }
     if (pointer1 == array1.length)
         sortedArray = sortedArray.concat(array2.slice(pointer2));
