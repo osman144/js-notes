@@ -15,6 +15,11 @@ Sorts elements one by one by placing a pivot element in its correct place and th
 
 > When array size is doubled, call stack increases by one (Not satisfied with the answer coz this reasoning fails at merge sort)
 
+### Tips
+- The run time of quick sort depends in part on where you select the pivot.
+- Ideally the pivot should be chosen so that it's roughly the median value in the data set you're sorting. 
+- For simplicty, can choose the pivot to be the first element (this can have consequences later). 
+
 ## Implementation
 ```javascript
 function quickSort(array) {
