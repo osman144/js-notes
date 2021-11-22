@@ -1,6 +1,9 @@
 # Data Structures
 Data structures are collection of values, the relationship between them and the functions or the operations that can be applied to the data.
 
+- A class is a blueprint for creating objects with pre-defined properties and methods.
+- Javascript classes are just syntactical sugar over Javascript's existing prototype-based inheritance.  
+
 ## ES2015 Classes
 ```javascript
 class Student {
