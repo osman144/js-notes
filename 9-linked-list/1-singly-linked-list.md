@@ -1,5 +1,15 @@
 # Singly Linked List
-Collection of nodes each node containing a value and pointer to the next node.
+- A linked list is a data structure that contains a head, tail, and length property. Head is the beginning and tail is the end. 
+- Linked lists consists of nodes, and each node has a value and a pointer to another node or null. 
+- Train car analogy. Or building analogy, if you want to go to the 5th floor using the stairs, you'll have to start at the first and go through each floor. 
+- Singly linked lists are connected in one direction. 
+
+Linked lists are a collection of nodes each node containing a value and pointer to the next node.
+
+### Linked Lists vs Arrays 
+
+- **Linked Lists**: Do not have indexes, connected via nodes with a next pointer, random access is not allowed
+- **Arrays**: Indexed in order, there is an order to it. Insertion and deletion can be expensive. Can quickly be accessed at a specific index. 
 
 >In JavaScript, ```undefined``` means a variable has been declared but has not yet been assigned a value.<br>
 ```null``` is an assignment value. It can be assigned to a variable as a representation of no value
@@ -30,48 +40,51 @@ Collection of nodes each node containing a value and pointer to the next node.
 ## Implementation
 ```javascript
 class Node {
-    constructor(data) {
-        this.data = data;
+    constructor(val) {
+        this.val = val;
         this.next = null;
     }
 }
 
 class SinglyLinkedList {
     constructor() {
-        this.length = null;
+        this.length = 0;
         this.head = null;
         this.tail = null;
     }
 
-    push(data) {
-        let newNode = new Node(data);
+    push(val) {
+        let newNode = new Node(val);
         if (!this.head) {
             // Empty list
             this.head = newNode;
-            this.tail = newNode;
+            this.tail = this.head;
         } else {
             this.tail.next = newNode;
             this.tail = newNode;
         }
         this.length++;
-        return this.length;
+        return this;
     }
     pop() {
-        if (!this.length) return undefined;
+        // if no node in list, return undefined
+        if (!this.head) return undefined;
+        
         // Find the second last node
-        let iterator = this.head;
-        while (iterator.next != this.tail) {
-            iterator = iterator.next;
+        let current = this.head;
+        let newTail = current;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
         }
-        let final = this.tail.data;
-        this.tail = iterator;
+        this.tail = newTail;
         this.tail.next = null;
         this.length--;
         if (this.length === 0) {
             this.head = null;
             this.tail = null;
         }
-        return final
+        return current;
     }
     shift() {
         if (!this.length) return undefined;
@@ -162,4 +175,7 @@ class SinglyLinkedList {
         }
     }
 }
+
+let list = new SinglyLinkedList()
+// do stuff here like list.push("Hello")
 ```
