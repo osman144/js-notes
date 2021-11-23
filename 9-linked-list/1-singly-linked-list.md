@@ -88,27 +88,25 @@ class SinglyLinkedList {
     }
     shift() {
         if (!this.length) return undefined;
-        let newHead = this.head.next;
-        let final = this.head.data;
-        this.head = newHead;
+        let currentHead = this.head
+        this.head = currentHead.next
         this.length--;
         if (this.length === 0) {
-            this.head = null;
             this.tail = null;
         }
-        return final;
+        return currentHead;
     }
-    unshift(data) {
-        let newHead = new Node(data)
-        if (this.length === 0) {
-            this.head = newHead;
-            this.tail = newHead;
-        } else {
-            newHead.next = this.head;
-            this.head = newHead;
+    unshift(val) {
+        let newNode = new Node(val)
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        }else{
+            newNode.next = this.head;
+            this.head = newNode;
         }
         this.length++;
-        return this.length;
+        return this;
     }
     traverse() {
         let iterator = this.head;
@@ -117,62 +115,64 @@ class SinglyLinkedList {
             iterator = iterator.next;
         }
     }
-    get(index = 0) {
-        let iteratorPostion = 0;
-        let iterator = this.head;
-        if (index >= this.length || index < 0) return null
-        while (iteratorPostion != index) {
-            iterator = iterator.next;
-            iteratorPostion++;
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+        let counter = 0;
+        let current = this.head;
+        while(counter !== index){
+            current = current.next;
+            counter++;
         }
-        return iterator;
+        return current;
     }
-    set(index = 0, data = undefined) {
-        let iterator = this.get(index);
-        if (!iterator) return false;
-        iterator.data = data;
+    set(index, val) {
+        // Changing the value of a node based on it's position in a Linked List
+        let foundNode = this.get(index);
+        if(foundNode){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, data) {
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length){
+           this.push(val);
+           return true;
+        }
+        if(index === 0) return this.unshift(val);
+        let newNode = new Node(val);
+        let prev = this.get(index - 1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
         return true;
     }
-    insert(index = 0, data = undefined) {
-        let prevNode = this.get(index - 1);
-        let nextNode = this.get(index);
-        let newNode = new Node(data);
-        if (this.length === 0 || !nextNode) this.push(data)
-        else if (!prevNode) this.unshift(data)
-        else {
-            prevNode.next = newNode;
-            newNode.next = nextNode;
-            this.length++;
-        }
-        return this.length;
-    }
-    remove(index = 0) {
-        let prevNode = this.get(index - 1);
-        let nextNode = this.get(index + 1);
-        let currentNode = this.get(index);
-        if (this.length === 0) return null;
-        else if (!prevNode) this.shift()
-        else if (!nextNode) this.pop()
-        else {
-            prevNode.next = nextNode;
-            this.length--;
-            return currentNode.data;
-        }
+    remove(index) {
+        if(index < 0 || index > this.length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length - 1) return this.pop();
+        let previousNode = this.get(index - 1);
+        let removed = previousNode.next;
+        previousNode.next = removed.next;
+        this.length --;
+        return removed;
     }
     reverse() {
         // flip head and tail
-        let temp = this.head;
+        let node = this.head;
         this.head = this.tail;
-        this.tail = temp;
-        let node = this.tail;
-        let prevNode = null;
-        let nextNode = node.next;
-        while (node != null) {
-            node.next = prevNode;
-            prevNode = node;
-            node = nextNode;
-            if (node != null) nextNode = node.next;
+        this.tail = node;
+        let prev = null;
+        let next;
+        for(let i = 0; i < this.length; i++){
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
         }
+        return this;
     }
 }
 
