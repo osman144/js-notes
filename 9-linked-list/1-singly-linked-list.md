@@ -19,8 +19,8 @@ Linked lists are a collection of nodes each node containing a value and pointer 
 ## Complexity
 1. Search: O(n)
 2. Access: O(n)
-3. Delete: O(n) or O(1)
-4. Insert: O(n) or O(1)
+3. Delete: O(1)
+4. Insert: O(1)
 
 > Singly Linked List are better than arrays when insertion and deletion at the end and at the start is required. Accessing is difficult in linked lists
 
