@@ -19,10 +19,12 @@ Linked lists are a collection of nodes each node containing a value and pointer 
 ## Complexity
 1. Search: O(n)
 2. Access: O(n)
-3. Delete: O(1)
-4. Insert: O(1)
+3. Delete: O(1), it depends on where were removing from O(N), constant time if removing from beginning of list, but if removing from elsewhere, need to find item right before the tail which involves iterating through the list. 
+5. Insert: O(1)
 
-> Singly Linked List are better than arrays when insertion and deletion at the end and at the start is required. Accessing is difficult in linked lists
+> Singly Linked List are better than arrays when insertion and deletion at the end and at the start is required. Accessing is difficult in linked lists.
+> Arrays contain a built in index whereas Linked Lists do not.
+> The idea of list data structure that consists of nodes is the foundation for other data structures like Stacks and Queues. 
 
 ## Methods
 1. ```push(data)```: Works same as ```push``` of array
