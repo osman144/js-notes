@@ -1,5 +1,9 @@
 # Doubly Linked List
-Collection of nodes each node containing a value and pointer to the **next** and the **previous** node. Compared to Singly Linked Lists, double linked lists use more memory which equals more flexibility. 
+Collection of nodes each node containing a value and pointer to the **next** and the **previous** node. Compared to Singly Linked Lists, double linked lists use more memory which equals more flexibility.
+
+- Browser history is organized using doubly linked list type of data structure. 
+- Better than Singly Linked Lists for finding nodes and can be done in half the time.
+- However, they do take up more memory considering the extra pointer. 
 
 > If a parameter is not passed to a function, that parameter gets the value of undefined.
 >https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
@@ -8,7 +12,9 @@ Collection of nodes each node containing a value and pointer to the **next** and
 
 ## Complexity
 
-1. Search: O(n)
+Big O of Doubly Linked Lists
+
+1. Search: O(n), technically search is O(N/2) but that's still O(N). 
 2. Access: O(n)
 3. Delete: O(n) or O(1)
 4. Insert: O(n) or O(1)
