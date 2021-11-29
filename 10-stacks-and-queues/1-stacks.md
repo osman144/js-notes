@@ -3,7 +3,11 @@
 Last in First Out. Used in browser history, call stacks, undo/redo etc. More than one way to create a stack. Its just a concept and it has to follow the LIFO rule. 
 
 ## Complexity
-1. ```push``` and ```pop``` are constant time. (Array implementation is not)
+```push``` and ```pop``` are constant time. (Array implementation is not)
+1. Insertion - O(1)
+2. Removal - O(1)
+3. Searching - O(N)
+4. Access - O(N)
 
 ## Implementation
 
