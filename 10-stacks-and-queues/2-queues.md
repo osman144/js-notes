@@ -2,7 +2,12 @@
 FIFO. Used in download managers, printing several documents etc.
 
 ## Complexity
-1. ```queue``` and ```dequeue``` are constant time. (Array implementation is not)
+```queue``` and ```dequeue``` are constant time. (Array implementation is not)
+1. Insertion - O(1)
+2. Removal - O(1)
+3. Searching - O(N)
+4. Access - O(N)
+
 
 ## Implementation
 
