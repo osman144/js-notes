@@ -1,6 +1,6 @@
 # Stacks
 
-Last in First Out. Used in browser history, call stacks etc.
+Last in First Out. Used in browser history, call stacks, undo/redo etc. 
 
 ## Complexity
 1. ```push``` and ```pop``` are constant time. (Array implementation is not)
