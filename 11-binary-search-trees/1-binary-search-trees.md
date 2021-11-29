@@ -1,12 +1,14 @@
 # Binary Search Trees
 
 ## Trees
-Trees are a data structure where the nodes are in a parent-child realtionship. They are non-linear unlike arrays and linked lists. Each parent in a tree may have multiple children but each child must have single aprent only. Singly linked list is a special case of tree. Nodes must point at their children only and not their siblings ie must go farther from the root. Root is a node with no parent. There is only one node in a tree.
+Trees are a data structure where the nodes are in a parent-child realtionship. They are non-linear unlike arrays and linked lists. Each parent in a tree may have multiple children but each child must have single parent only. 
+
+Singly linked list is a special case of tree. Nodes must point at their children only and not their siblings ie must go farther from the root. Root is a node with no parent. There is only one node in a tree.
 
 ![Tree](./htmltree.png)
 
 ### Definitions
-1. **Root**: Topmost Node of tree with no parents
+1. **Root**: Top-most Node of tree with no parents
 2. **Child**: A node directly connected to a node while moving away from the root node
 3. **Parent**: The node to which child is connected to
 4. **Siblings**: Nodes with same parents
@@ -21,7 +23,10 @@ Trees are a data structure where the nodes are in a parent-child realtionship. T
 5. JSON
 
 ## Binary Tree
-Subset of trees. Every node can have atmost _two_ children.
+**Subset of trees. Every node can have atmost _two_ children. For Binary trees, each node must have at most two children. **
+
+**BSTs are sorted. Nodes less than the parent located to the left of parent, nodes greater than parent located to the right.**
+
 
 ![Binary Tree](./binary_tree.svg)
 
@@ -33,20 +38,20 @@ Subset of Binary Trees. Every child to the left of a node is smaller than parent
 ### Complexity
 
 1. Searching and Inserting: (Doubling sized increases one step)
-* Best: O(1)
+* Best: O(log(n))
 * Average: O(log(n))
 * Worst: O(n)
 
-> Worst occurs if the binary tree is one sided. That is every node has child only on the right(or left) side. In this case, it is basically a linked list.
+> Worst occurs if the binary tree is one sided. That is every node has child only on the right(or left) side. In this case, it is basically a linked list. Or choose a different root. 
 
 
 ### Implementation
 ```javascript
 class Node {
     constructor(data) {
+        this.value = value;
         this.left = null;
         this.right = null;
-        this.data = data;
     }
 }
 
