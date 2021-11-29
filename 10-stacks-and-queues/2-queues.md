@@ -17,9 +17,9 @@ a.shift();
 2. **Using Classes**
 ```javascript
 class Node {
-    constructor(data) {
-        this.previous = null;
-        this.data = data;
+    constructor(value) {
+        this.value = value;
+        this.next = null;
     }
 }
 
@@ -27,24 +27,30 @@ class Queue {
     constructor() {
         this.first = null;
         this.last = null;
-        this.size = 0;
+        this.size;
     }
-    queue(data) {
-        let newNode = new Node(data);
-        if (this.size === 0) {
+    enqueue(val) {
+        let newNode = new Node(val);
+        if(!this.first){
             this.first = newNode;
-        } else this.last.previous = newNode;
-        this.size++;
-        this.last = newNode;
-        return this.size;
+            this.last = newNode;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
+        return ++this.size;
     }
 
     dequeue() {
-        if (this.size == 0) return undefined;
-        let temp = this.head;
-        this.head = temp.previous;
+        if(!this.first) return null;
+        
+        let temp = this.first;
+        if(this.first === this.last){
+            this.last = null;
+        }
+        this.first = this.first.next;
         this.size--;
-        return temp;
+        return temp.value;
     }
 }
 ```
