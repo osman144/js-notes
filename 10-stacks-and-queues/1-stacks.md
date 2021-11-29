@@ -1,6 +1,6 @@
 # Stacks
 
-Last in First Out. Used in browser history, call stacks, undo/redo etc. 
+Last in First Out. Used in browser history, call stacks, undo/redo etc. More than one way to create a stack. Its just a concept and it has to follow the LIFO rule. 
 
 ## Complexity
 1. ```push``` and ```pop``` are constant time. (Array implementation is not)
@@ -18,8 +18,8 @@ a.pop();
 2. **Using Classes**
 ```javascript
 class Node {
-    constructor(data) {
-        this.data = data;
+    constructor(value) {
+        this.value = value;
         this.next = null;
     }
 }
@@ -31,23 +31,26 @@ class Stack {
         this.size = 0;
     }
     push(data) {
-        let newNode = new Node(data);
-        if (this.size === 0) {
+        let newNode = new Node(val);
+        if(!this.first){
             this.first = newNode;
             this.last = newNode;
         } else {
-            newNode.next = this.last;
-            this.last = newNode;
+            let temp = this.first;
+            this.first = newNode;
+            this.first.next = temp;
         }
-        this.size++;
-        return this.size;
+        return ++this.size;
     }
     pop() {
-        if (this.size == 0) return undefined;
-        let temp = this.last;
-        this.last = this.last.next;
+        if(!this.first) return null;
+        let temp = this.first;
+        if(this.first === this.last){
+            this.last = null;
+        }
+        this.first = this.first.next;
         this.size--;
-        return temp;
+        return temp.value;
     }
 }
 ```
