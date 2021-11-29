@@ -27,7 +27,7 @@ class Queue {
     constructor() {
         this.first = null;
         this.last = null;
-        this.size;
+        this.size = 0;
     }
     enqueue(val) {
         let newNode = new Node(val);
