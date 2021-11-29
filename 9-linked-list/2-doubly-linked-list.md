@@ -1,10 +1,13 @@
-# Double Linked List
-Collection of nodes each node containing a value and pointer to the next and the previous node.
+# Doubly Linked List
+Collection of nodes each node containing a value and pointer to the **next** and the **previous** node. Compared to Singly Linked Lists, double linked lists use more memory which equals more flexibility. 
 
 > If a parameter is not passed to a function, that parameter gets the value of undefined.
 >https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
 
+<img width="629" alt="Screen Shot 2021-11-28 at 4 22 51 PM" src="https://user-images.githubusercontent.com/25594064/143788443-b98f3bd8-a52d-48cf-abd5-71675ab64862.png">
+
 ## Complexity
+
 1. Search: O(n)
 2. Access: O(n)
 3. Delete: O(n) or O(1)
@@ -27,9 +30,9 @@ Collection of nodes each node containing a value and pointer to the next and the
 ## Implemetation
 ```javascript
 class Node {
-    constructor(data) {
-        this.data = data;
-        this.previous = null;
+    constructor(val) {
+        this.val = val;
+        this.prev = null;
         this.next = null;
 
     }
@@ -42,138 +45,127 @@ class DoublyLinkedList {
         this.length = 0;
     }
 
-    push(data) {
-        let newNode = new Node(data);
+    push(val) {
+        let newNode = new Node(val);
         if (this.length === 0) {
             this.head = newNode;
+            this.tail = newNode;
         } else {
             this.tail.next = newNode;
-            newNode.previous = this.tail;
+            newNode.prev = this.tail;
+            this.tail = newNode;
         }
-        this.tail = newNode;
         this.length++;
         return this.length;
     }
     pop() {
-        let final;
-        if (this.length === 0) final = null;
-        else if (this.length === 1) {
-            final = this.head.data;
+        if(!this.head) return undefined;
+        let poppedNode = this.tail;
+        if(this.length === 1){
             this.head = null;
             this.tail = null;
-            this.length = 0;
-        } else {
-            final = this.tail.data;
-            this.tail = this.tail.previous;
+        } else{
+            this.tail = poppedNode.prev;
             this.tail.next = null;
-            this.length--;
+            poppedNode.prev = null;
         }
-        return final;
+        this.length--;
+        returned poppedNode;
     }
     shift() {
-        let final;
-        if (this.length === 0) final = null;
-        else if (this.length === 1) {
-            final = this.head.data;
+        // **Removing** a node from the beginning of the Doubly Linked List
+        if (this.length === 0) return undefined;
+        let oldHead = this.head;
+        if(this.length === 1){
             this.head = null;
             this.tail = null;
-            this.length = 0;
         } else {
-            final = this.head.data;
-            this.head = this.head.next;
-            this.head.previous = null;
-            this.length--
+            this.head = oldHead.next;
+            this.head.prev = null;
+            oldHead.next = null;
         }
-        return final;
+        this.length--;
+        return oldHead;
     }
-    unshift(data) {
+    unshift(val) {
+        // **Adding** a node to beginning of Doubly Linked List
         let newNode = new Node(data);
         if (this.length === 0) {
+            this.head = newNode;
             this.tail = newNode;
         } else {
-            this.head.previous = newNode;
+            this.head.prev = newNode;
             newNode.next = this.head;
+            this.head = newNode;
         }
-        this.head = newNode;
         this.length++;
-        return this.length;
+        return this;
     }
     get(index) {
+        // Accessing a node in a Doubly Linked List by its position
         if (index < 0 || index >= this.length) return null;
-        let iterator;
-        if (index > this.length / 2) {
-            // Traverse from behind
-            iterator = this.tail;
-            let iteratorPosition = this.length - 1;
-            while (iteratorPosition != index) {
-                iterator = iterator.previous;
-                iteratorPosition--;
+        let count, current;
+        if (index <= this.length / 2) {
+            count = 0;
+            let current = this.head;
+            while(count !== index){
+                current = current.next;
+                count++;
             }
+            return current;
         } else {
-            //travers from front
-            iterator = this.head;
-            let iteratorPosition = 0;
-            while (iteratorPosition != index) {
-                iterator = iterator.next;
-                iteratorPosition++;
+            count = this.length - 1;
+            current = this.tail;
+            while(count !== index){
+                current = current.prev;
+                count--;
             }
+            return current;
         }
-        return iterator;
     }
-    set(index, data) {
-        let iterator = this.get(index);
-        if (!iterator) return false;
-        iterator.data = data;
+    set(index, val) {
+        // Replacing the value of a node in a Doubly Linked List
+        let foundNode = this.get(index);
+        if(foundNode != null){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, val) {
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) return this.unshift(val);
+        if(index === this.length) return this.push(val);
+        
+        let newNode = new Node(val);
+        let beforeNode = this.get(index-1);
+        let afterNode = beforeNode.next;
+        
+        beforeNode.next = newNode;
+        newNode.prev = beforeNode;
+        newNode.next = afterNode;
+        afterNode.prev = newNode;
+        this.length++;
         return true;
     }
-    insert(index, data) {
-        let previousNode = this.get(index - 1);
-        let nextNode = this.get(index);
-        let newNode = new Node(data);
-        if (index === 0 || this.length === 0) this.unshift(data)
-        else if (index === this.length) this.push(data);
-        else {
-            previousNode.next = newNode;
-            newNode.previous = previousNode;
-            newNode.next = nextNode;
-            nextNode.previous = newNode;
-            this.length++;
-        }
-        return this.length;
-    }
     remove(index) {
-        if (index < 0 || index >= this.length) return undefined;
-        if (index === 0) this.shift()
-        else if (index === this.length - 1) this.pop()
-        else {
-            let final = this.get(index).data;
-            let previousNode = this.get(index - 1);
-            let nextNode = this.get(index + 1);
-            previousNode.next = nextNode;
-            nextNode.previous = previousNode;
-            this.length--;
-            return final;
-        }
+        // Removing a node in a Doubly Linked List by a certain position
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length - 1) return this.pop();
+        let removedNode = this.get(index);
+        removedNode.prev.next = removedNode.next;
+        removedNode.next.prev = removedNode.prev;
+        removedNode.next = null;
+        removedNode.prev = null;
+        this.length--;
+        return removedNode;
     }
     reverse() {
-        let iterator = this.head;
-        while(iterator){
-            let temp = iterator.next;
-            iterator.next = iterator.previous;
-            iterator.previous = temp;
-            iterator = iterator.previous;
-        }
-        let temp = this.head;
-        this.head = this.tail;
-        this.tail = temp;
+        
     }
     traverse() {
-        let iterator = this.head;
-        while (iterator) {
-            console.log(iterator.data);
-            iterator = iterator.next;
-        }
-        return this.length;
+        
     }
 }
 ```
