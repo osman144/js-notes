@@ -18,10 +18,14 @@ To implement BFS, we use queues. We start by adding the root node to the queue. 
 ```javascript
 // Inside Binary Search Classs from previous section
     BFS() {
-        let node = this.root
-	let data = [],
+        let node = this.root;
+	let queue = [];
+	let data = [];
+	
 	queue.push(node);
 	while(queue.length){
+		// Shift removes value from queue 
+		// Add current node to data;
 		node = queue.shift();
 		data.push(node.value);
 		if(node.left) queue.push(node.left)
