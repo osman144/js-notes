@@ -19,15 +19,15 @@ Suppose we have 16 length array. Is we perform binary search, we half the array 
 ## Implementation
 ```javascript
 //Using recursion
-function binarySort(array, target, left = 0, right = array.length - 1) {
+function binarySearch(array, target, left = 0, right = array.length - 1) {
     // find the middle index
     let middle = Math.floor((left + right) / 2)
     if (array[middle] == target) return middle;
     if (right == left) return -1;
-    if (target < array[middle]) return binarySort(array, target, left, middle - 1);
+    if (target < array[middle]) return binarySearch(array, target, left, middle - 1);
     
     // target is in the right array
-    return binarySort(array, target, middle + 1, right);
+    return binarySearch(array, target, middle + 1, right);
 }
 
 //Using While Loop
