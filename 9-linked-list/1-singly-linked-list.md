@@ -113,7 +113,7 @@ class SinglyLinkedList {
     traverse() {
         let iterator = this.head;
         while (iterator) {
-            console.log(iterator.data);
+            console.log(iterator.val);
             iterator = iterator.next;
         }
     }
