@@ -168,10 +168,24 @@ class DoublyLinkedList {
         return removedNode;
     }
     reverse() {
-        
+        let iterator = this.head;
+        while(iterator){
+            let temp = iterator.next;
+            iterator.next = iterator.previous;
+            iterator.previous = temp;
+            iterator = iterator.previous;
+        }
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
     }
     traverse() {
-        
+        let iterator = this.head;
+        while (iterator) {
+            console.log(iterator.data);
+            iterator = iterator.next;
+        }
+        return this.length;
     }
 }
 ```
