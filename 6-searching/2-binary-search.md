@@ -31,25 +31,22 @@ function binarySearch(array, target, left = 0, right = array.length - 1) {
 }
 
 //Using While Loop
-function binarySearch(array, target) {
-    // Set inital pointers
-    let left = 0;
-    let right = array.length-1;
-    let middle = Math.floor((left + right) / 2);
-    
-    // While middle does not equal target
-    while (arr[middle !== target && left <== right){
-        if (array[middle] < target) {
-            // target belongs to the right;
-            left = middle + 1;
-        } else {
-            // target belongs to the left
-            right = middle - 1;
-        }
-	middle = Math.floor((left + right) / 2);
+function binarySearch(target, list){
+  let left = 0;
+  let right = list.length -1;
+
+  // while no overlap;
+  while(left <= right){
+    let mid = Math.floor((left + right) / 2);
+    if (list[mid] === target) return mid;
+    else if (list[mid] < target) {
+      // target belongs to the right;
+      left = mid + 1;
+    } else {
+        // target belongs to the left
+        right = mid - 1
     }
-    if(arr[middle] === elem) return middle;
-    // return -1 if no value found
-    return -1
+  }
+  return -1;
 }
 ```
