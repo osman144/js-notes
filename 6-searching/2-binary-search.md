@@ -29,6 +29,38 @@ function binarySearch(array, target, left = 0, right = array.length - 1) {
     // target is in the right array
     return binarySearch(array, target, middle + 1, right);
 }
+
+function binarySearch(target, list, left=0, right=list.length-1){
+  let mid = Math.floor((left+right)/2); // 0
+  if(left >= right) return false; // overlap
+  if(target === list[mid]) return true; // found
+  else if(list[mid] < target){
+    left = mid + 1; // 1
+  } else{
+    right = mid - 1;
+  };
+
+  return binarySearch(target, list, left, right)
+}
+```
+
+```javascript 
+// recursion 2
+function binarySearch(target, list, left, right){
+  if(left > right) return false; // overlap
+
+  let mid = Math.floor((left+right)/2); // 1
+
+  if(target === list[mid]){ 
+    return true; // found
+  } else if(target < list[mid]){
+    // go search left side
+    return binarySearch(target, list, left, mid - 1)
+  } else{
+    // go search right side
+    return binarySearch(target, list, mid + 1, right) // 2
+  };
+}
 ```
 
 ```javascript
