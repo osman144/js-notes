@@ -29,7 +29,9 @@ function binarySearch(array, target, left = 0, right = array.length - 1) {
     // target is in the right array
     return binarySearch(array, target, middle + 1, right);
 }
+```
 
+```javascript
 //Using While Loop
 function binarySearch(target, list){
   let left = 0;
