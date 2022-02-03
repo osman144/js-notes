@@ -162,19 +162,21 @@ class SinglyLinkedList {
         return removed;
     }
     reverse() {
-        // flip head and tail
-        let node = this.head;
-        this.head = this.tail;
-        this.tail = node;
-        let prev = null;
-        let next;
-        for(let i = 0; i < this.length; i++){
-            next = node.next;
-            node.next = prev;
-            prev = node;
-            node = next;
+        let node = head, previous,tmp;
+        
+        while (node) {
+          // save next before we overwrite node.next!
+          tmp = node.next;
+
+          // reverse pointer
+          node.next = previous;
+
+          // step forward in the list
+          previous = node;
+          node = tmp;
         }
-        return this;
+        
+        return previous;
     }
 }
 
