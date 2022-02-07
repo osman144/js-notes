@@ -29,7 +29,11 @@ function binarySearch(array, target, left = 0, right = array.length - 1) {
     // target is in the right array
     return binarySearch(array, target, middle + 1, right);
 }
+```
 
+
+```javascript
+// recursion 2
 function binarySearch(target, list, left=0, right=list.length-1){
   let mid = Math.floor((left+right)/2); // 0
   if(left >= right) return false; // overlap
@@ -45,7 +49,7 @@ function binarySearch(target, list, left=0, right=list.length-1){
 ```
 
 ```javascript 
-// recursion 2
+// recursion 3
 function binarySearch(target, list, left, right){
   if(left > right) return false; // overlap
 
