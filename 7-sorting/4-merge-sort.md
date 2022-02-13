@@ -28,22 +28,28 @@ function mergeSort(arr) {
 }
 
 function mergeArrays(arr1, arr2) {
-    // Given two functions, this function constructs a single sorted array
+    // Given two arrays, this function constructs a single sorted array
     let sortedArr = [];
     let i = 0;
     let j = 0;
-    while (i < arr1.length && j < arr2.length)
-        if (arr2[j] > arr1[i]) {
+
+    while(i<arr1.length && j<arr2.length){
+        if(arr1[i] < arr2[j]){
             sortedArr.push(arr1[i]);
             i++;
-        } else {
-            sortedArr.push(arr2[j]);
-            j++;
+        }else{
+           sortedArr.push(arr2[j]);
+           j++;
         }
-    if (pointer1 == array1.length)
-        sortedArray = sortedArray.concat(array2.slice(pointer2));
-    else
-        sortedArray = sortedArray.concat(array1.slice(pointer1));
-    return sortedArray
+    }
+
+    // hit the end of array 1, so concat the rest of arr2 from where j was at
+    if(i === arr1.length){
+        sortedArr = sortedArr.concat(arr2.slice(j));
+    }else{
+        sortedArr = sortedArr.concat(arr1.slice(i));
+    }
+
+    return sortedArr;
 }
 ```
