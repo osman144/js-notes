@@ -3,6 +3,8 @@ Sorts elements one by one by placing a pivot element in its correct place and th
 
 When helper returns the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to right of that index. 
 
+**Very helpful Youtube Video:** https://www.youtube.com/watch?v=XE4VP_8Y0BU
+
 ## Complexity
 1. Time
 
