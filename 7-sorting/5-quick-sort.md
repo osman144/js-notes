@@ -86,3 +86,23 @@ function quickSort(arr, left = 0, right= arr.length - 1){
     return arr;
 }
 ```
+
+
+### Quick sort with built in functions
+```javascript
+function quickSort(arr){
+  if(arr.length <= 1) return arr;
+
+  let pivot = arr[0];
+  let left = [];
+  arr.forEach(elem => { if(elem<arr[0]) left.push(elem)}); // O(n) space and O(n) time
+  let right = [];
+  arr.forEach(elem => { if(elem>arr[0]) right.push(elem)}); // O(n) time and O(n) space
+
+  return quickSort(left).concat([pivot], quickSort(right))
+}
+
+
+// testarray 
+console.log(quickSort([32,4,2,8,345,500,1,63,43,55, 234,92]))
+```
