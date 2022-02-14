@@ -24,6 +24,17 @@ When helper returns the updated pivot index, recursively call the pivot helper o
 - Ideally the pivot should be chosen so that it's roughly the median value in the data set you're sorting. 
 - For simplicty, can choose the pivot to be the first element (this can have consequences later). 
 
+#### Steps
+1. Pick a pivot in the array. 
+2. Then find the elements smaller than the pivot and elements larger than the pivot. (This is called partitioning which means dividing up the elements). 
+3. Now you have: a sub-array of all the numbers less than the pivot. The pivot. A sub-array of all the numbers greater than the pivot. 
+4. Call quicksort recursively on the two sub-arrays. 
+
+|| 
+1. Pick pivot 
+2. Divide/Partition array into two sub-arrays: elements less than pivot, elements greater than pivot
+3. Call quicksort recursively on the two sub-arrays 
+
 ## Implementation
 ```javascript
 function quickSort(array) {
