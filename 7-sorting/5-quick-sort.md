@@ -5,6 +5,10 @@ When helper returns the updated pivot index, recursively call the pivot helper o
 
 **Very helpful Youtube Video:** https://www.youtube.com/watch?v=XE4VP_8Y0BU
 
+
+![quicksort-in-javascript-1](https://user-images.githubusercontent.com/25594064/154868465-9c485bfd-47a8-4a51-9593-9770f2e06d4f.jpeg)
+
+
 ## Complexity
 1. Time
 
