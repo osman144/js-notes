@@ -105,4 +105,31 @@ Used by the Operating System to execute important tasks first. Emergency room ex
 
 Priority Queues are implemented using heaps since the root node is always the largest value. Thus the tasks are queued in a heap and when the root task is performed, it is removed as in above implementation and the next higher values comes to the top and so on. If instead arrays were used, we would take O(n) time to find the max which is slower.
 
+
+```javascript
+class Node {
+    constructor(val) {
+    	// val doesn't matter
+	// heap is constructed using priority
+    	this.val = val;
+	this.priority= 0;
+    }
+	
+}
+
+class PriorityQueue {
+    constructor() {
+        this.values = []
+    }
+    /** enqueue method accepts a value and priority, makes a 
+    new node, and puts it in the right spot */
+    
+    // enqueue 
+    
+    /** dequeue method removes root element, returns it, and rearranges heap 
+    using priority */
+    
+    // dequeue 
+}
+```
 > Project Ideas: Implement a todo list app using priority queue
