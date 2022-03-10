@@ -1,7 +1,13 @@
 # Binary Heap
-Binary Heaps are Binary Trees with some rules. Binary Heaps are as compact as possible
-* **Min Binary Heap**: The parent nodes are always smaller than the child nodes
-* **MAx Binary Heap**: The parent nodes are always greater than the child nodes
+Binary Heaps are Binary Trees with some rules. Binary Heaps are as compact as possible. Binary heaps have no order to the left or the right unlike a binary search tree. But similar to BSTs, can have up to two children. 
+
+Binary heaps used to implement priority queues and also used with graph traversal algorithms. 
+
+
+* **Min Binary Heap**: The parent nodes are always smaller than the child nodes. Every child node after the root should be greater. 
+
+* **Max Binary Heap**: The parent nodes are always greater than the child nodes. The root is the largest node in the tree. Every child after the root should be smaller. Each parent has at most two child nodes. The value of each parent node is always greater than its child node. In a max binary heap, the parent is greater than the children but there are no guarantees between sibling nodes. 
+	- All the children of each node are as full as they can be and left children are filled out first.   
 
 ## Representation
 Since heaps are as compact as possible, we can expresss them as an array:
@@ -14,11 +20,14 @@ Since heaps are as compact as possible, we can expresss them as an array:
 				|=> [8, 7, 3, 5, 6, 2]
 ```
 Thus the child nodes and parent nodes are related by index as follows:
+Formula for finding the child based off the parent. 
 1. If parent is at index n:
 * left child is at index 2n + 1
 * right child is at index 2n + 2
 
 2. If child is at index n, parent is at Math.floor((n-1)/2)
+3. 
+<img width="609" alt="Screen Shot 2022-03-09 at 7 43 47 PM" src="https://user-images.githubusercontent.com/25594064/157570660-76afc57b-d62a-4775-8ec1-a0f751c64442.png">
 
 ## Implementation
 1. **Insert**: Used to insert a value to the heap. First the value is added to the array using ```push```. Then as long as the parent node is smaller then the current node, they are swapped with each other.
@@ -48,7 +57,7 @@ class MaxBinaryHeap {
     childValueLeft(index) {
         return this.values[this.childIndexLeft(index)];
     }
-    childValueRigth(index) {
+    childValueRight(index) {
         return this.values[this.childIndexRight(index)];
     }
     insert(value) {
@@ -85,6 +94,6 @@ class MaxBinaryHeap {
 3. Search: O(n)
 
 ## Priority Queues
-Priority Queues are datastructures in which the elements with higher priority are sered first. These are used by the Operating System to execute important tasks first. Prioritty Wueues are implemented using heaps since the root node is always the larget value. Thus the taks are queued in a heap and when the root task is performed, it is removed as in above implementation and the next higher values comes to the top and so on. If instead arrays were used, we would take O(n) time to find the max which is slower.
+Priority Queues are datastructures in which the elements with higher priority are sered first. These are used by the Operating System to execute important tasks first. Priority Queues are implemented using heaps since the root node is always the larget value. Thus the taks are queued in a heap and when the root task is performed, it is removed as in above implementation and the next higher values comes to the top and so on. If instead arrays were used, we would take O(n) time to find the max which is slower.
 
 > Project Ideas: Implement a todo list app using priority queue
