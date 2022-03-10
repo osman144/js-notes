@@ -93,7 +93,16 @@ class MaxBinaryHeap {
 2. Removal: log(n)
 3. Search: O(n)
 
-## Priority Queues
-Priority Queues are datastructures in which the elements with higher priority are sered first. These are used by the Operating System to execute important tasks first. Priority Queues are implemented using heaps since the root node is always the larget value. Thus the taks are queued in a heap and when the root task is performed, it is removed as in above implementation and the next higher values comes to the top and so on. If instead arrays were used, we would take O(n) time to find the max which is slower.
+## Priority Queue
+A Priority Queue is a data structure where each element has a priority. Elements with higher priorities are served (retrieved) before elements with lower priorities. 
+
+Generally priority queues are seperate from heaps. They aren't related at all. Priority queue is just a queue with set procedure for how the priority of elements will be handled. They are just an abstract concept and could be implemeted with something like an array, etc. A naive version is to store the elements in a list and iterate over the entire thing to find the highest priority element.
+
+A lower number in this case denotes a higher priority. 
+<img width="699" alt="Screen Shot 2022-03-09 at 10 24 52 PM" src="https://user-images.githubusercontent.com/25594064/157589228-5cba2fc9-cbc0-4cd5-bc42-37e9413b2941.png">
+
+Used by the Operating System to execute important tasks first. Emergency room example, someone with a bad wound will be higher priority than someone with a minor ailment. 
+
+Priority Queues are implemented using heaps since the root node is always the largest value. Thus the tasks are queued in a heap and when the root task is performed, it is removed as in above implementation and the next higher values comes to the top and so on. If instead arrays were used, we would take O(n) time to find the max which is slower.
 
 > Project Ideas: Implement a todo list app using priority queue
