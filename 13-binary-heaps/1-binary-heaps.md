@@ -1,8 +1,12 @@
 # Binary Heap
-Binary Heaps are Binary Trees with some rules. Binary Heaps are as compact as possible. Binary heaps have no order to the left or the right unlike a binary search tree. But similar to BSTs, can have up to two children. 
+Binary Heaps are Binary Trees with some rules. Binary Heaps are very useful data structures for sorting and implementing other data structures like priority queues. 
+
+Binary Heaps are as compact as possible. Binary heaps have no order to the left or the right unlike a binary search tree. But similar to BSTs, can have up to two children. They are usually filled from left to right to prevent unbalanced trees. 
 
 Binary heaps used to implement priority queues and also used with graph traversal algorithms. 
 
+
+Binary Heaps are either MaxBinaryHeaps or MinBinaryHeaps with parents either being smaller or larger than their children. 
 
 * **Min Binary Heap**: The parent nodes are always smaller than the child nodes. Every child node after the root should be greater. 
 
@@ -93,6 +97,8 @@ class MaxBinaryHeap {
 2. Removal: log(n)
 3. Search: O(n)
 
+Binary heaps excel at insertion and deletion. 
+
 ## Priority Queue
 A Priority Queue is a data structure where each element has a priority. Elements with higher priorities are served (retrieved) before elements with lower priorities. 
 
@@ -108,11 +114,11 @@ Priority Queues are implemented using heaps since the root node is always the la
 
 ```javascript
 class Node {
-    constructor(val) {
+    constructor(val, priority) {
     	// val doesn't matter
 	// heap is constructed using priority
     	this.val = val;
-	this.priority= 0;
+	this.priority= priority;
     }
 	
 }
@@ -125,11 +131,67 @@ class PriorityQueue {
     new node, and puts it in the right spot */
     
     // enqueue 
+    enqueue(val, priority){
+    	let newNode = new Node(val, priority);
+    	this.values.push(newNode);
+	this.bubbleUp();
+    }
+    
+    bubbleUp(){
+    	let index = this.values.length - 1;
+	const element = this.values[index];
+	while(index > 0){
+		let parentIndex = Math.floor((index - 1)/2);
+		let parent = this.values[parentIndex];
+		if(element.priority <= parent.priority) break;
+		this.values[parentIndex] = element;
+		this.values[index] = parent;
+		index = parentIndex;
+    }
     
     /** dequeue method removes root element, returns it, and rearranges heap 
     using priority */
     
-    // dequeue 
+    // dequeue will remove by largest priority first
+    dequeue(){
+    	const max = this.values[0];
+	const end = this.values.pop();
+	if(this.values.length > 0){
+		this.values[0] = end;
+		this.sinkDown();
+	}
+	return max;
+    }
+    
+    sinkDown(){
+    	let index = 0;
+	const length = this.values.length;
+	while(true){
+		let leftChildIndex = 2 * index + 1;
+		let rightChildIndex = 2 * index + 2;
+		let leftChild, rightChild;
+		let swap = null;
+		
+		if(leftChildIndex < length){
+			leftChild = this.values[leftChildIndex];
+			if(leftChild.priority > element.priority){
+				swap = leftChildIndex;
+			}
+		}
+		if(rightChildIndex < length){
+			rightChild = this.values[rightChildIndex];
+			if(
+			     (swap === null && rightChild.priority > element.priority) || 
+			     (swap !== null && rightChild.priority > leftChild.priority)
+			){
+			   swap = rightChildIndex;
+			}
+		}
+		if(swap === null) break;
+		this.values[index] = this.values[swap];
+		index = swap;
+	}
+    }
 }
 ```
 > Project Ideas: Implement a todo list app using priority queue
