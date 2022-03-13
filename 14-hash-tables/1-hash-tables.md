@@ -1,12 +1,16 @@
 # Hash Tables
 Objects and Maps in JavaScript, Dictionaries in Python, Maps in Dart are all Hash Table implementation.
 
+Hash tables are used to store _key-value_ pairs. They are like arrays but the keys are not ordered. Unlike arrays, hash tables are fast for all of the following operations: finding values, adding new values, and removing values. 
+
 ## Working
 Suppose we want to store a key value pair. Arrays are already key value pair implementation where keys are the indices. But suppose we want the key to be strings, in such case we need to use a hash table.
 Consider the following object: ```{"pink" : "#ff6932", "cyan" : "#00fff"}```.
 To store this data we need to use a hash function and an array. Suppose ```hash("pink")``` is 25. Thus we will store ```"#ff6932"``` at the 25 index of our array. Thus next time whenever we want to access the value of key ```"pink"```, we simply have to pass the key thru the hash function and the output index will be used to access the value from array.
 
 ## Hash Function
+In order to look up values by key, we need a way to convert keys into valid array indices. 
+
 Hash function is a function that takes any data and converts it into a number.
 
 **Properties of a good hash function:**
