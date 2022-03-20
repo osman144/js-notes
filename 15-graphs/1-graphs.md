@@ -94,9 +94,21 @@ For one with letters it would look something like this below:
 
 <img width="385" alt="Screen Shot 2022-03-15 at 8 55 58 PM" src="https://user-images.githubusercontent.com/25594064/158501314-9aa54c0e-5852-4d86-8e9e-21b3ae090c9e.png">
 
+### Adjacency List vs Adjacency Matrix
+
+**Adjacency List**
+* Can take up less space (in sparse graphs)
+* Faster to iterate over all edges
+* Can be slower to lookup specific edge
+
+**Adjacency Matrix**
+* Takes up more space (in sparse graphs)
+* Slower to iterate over all edges
+* Faster to lookup specific edge
+
 ## Complexity Comparision
 
-<img width="500" height="300" alt="Screen Shot 2022-03-15 at 8 57 59 PM" src="https://user-images.githubusercontent.com/25594064/158501502-7cf8696e-210e-4b0f-a38c-ac14eaf7851d.png">
+<img width="450" height="250" alt="Screen Shot 2022-03-15 at 8 57 59 PM" src="https://user-images.githubusercontent.com/25594064/158501502-7cf8696e-210e-4b0f-a38c-ac14eaf7851d.png">
 
 1. Add Vertex:
 * Matrix: O(v<sup>2</sup>)
