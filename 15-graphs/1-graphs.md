@@ -133,3 +133,42 @@ For one with letters it would look something like this below:
 6. Storage:
 * Matrix: O(v<sup>2</sup>)
 * List: O(v)
+
+
+## Graphs methods
+```javascript
+class Graph {
+	constructor(){
+	    this.adjacencyList = {};
+	}
+	
+	// adding vertex
+	addVertex(vertex){
+	    if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+	}
+	// adding edge
+	addEdge(v1,v2){
+	    this.adjacencyList[v1].push(v2);
+	    this.adjacencyList[v2].push(v1);
+	}
+	
+	// removing edge
+	removeEdge(vertex1, vertex2){
+	    this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+	      v => v !== vertex2
+	    );
+	    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+	      v => v !== vertex1
+	    );
+	}
+	// removing vertex
+	removeVertex(vertex){
+	    while(this.adjacencyList[vertex].length){
+	    	const adjacentVertex = this.adjacencyList[vertex].pop();
+		this.removeEdge(vertex, adjacentVertex);
+	    }
+	    delete this.adjacencyList[vertex];
+	}
+}
+
+```
