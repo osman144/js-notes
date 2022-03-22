@@ -1,4 +1,4 @@
-# Grap Traversal
+# Graph Traversal
 Traversal generally means visiting/updating/checking each vertex in a graph. It does not necessarily mean were searching for something. 
 
 ### Use Case
@@ -93,8 +93,30 @@ class Graph {
       return result;
   }
   
+  // BFS 
+  breadthFirst(start){
+      const queue = [start];
+      const result = [];
+      const visited = {};
+      let currentVertex;
+      visited[start] = true;
+      
+      while(queue.length){
+           currentVertex = queue.shift();
+	   result.push(currentVertex);
+	   
+	   this.adjacencyList[currentVertex].forEach(neighbor => {
+	   	if(!visited[neighbor]){
+		     visited[neighbor] = true;
+		     queue.push(neighbor);
+		}
+	   })
+      };
+      
+      return result;
+  }
+  
 }
-
 
 
 ```
