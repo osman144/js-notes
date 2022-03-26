@@ -1,4 +1,6 @@
 # Dijkstra's Algorithm 
+Dijkstra's Algorithm is an algorithm for finding the shortest paths between nodes in a graph. That is, we use it to find the shortest distance between two vertices on a graph. Depending on what the graph represents, we can find shortest routes, minimum costs, etc. all using this algorithm.
+
 
 ### Use
 * GPS or mapping software, Network Routing, Biology, Airline tickets, etc
@@ -17,6 +19,21 @@ class WeightedGraph {
   addEdge(vertex1, vertex2, weight){
     this.adjacencyList[vertex1].push({node: vertex2, weight});
     this.adjacencyList[vertex2].push({node: vertex1, weight});
+  }
+  
+  Dijkstra(start, finish){
+    const nodes = new PriorityQueue();
+    const distances = {};
+    const previous = {};
+    
+    for(let vertex in this.adjacencyList){
+      if(vertex === start){
+        distances[vertex] = 0;
+      }else{
+        distances[vertex] = Infinity;
+      }
+    }
+  
   }
 }
 ```
@@ -54,3 +71,6 @@ class PriorityQueue {
    };
 }
 ```
+
+## Dijkstra Implementation
+
