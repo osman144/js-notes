@@ -24,6 +24,8 @@ Time can reduced with with memoization.
 
 ### Memoization 
 Storing the results of expensive function calls and returning the cached result when the same inputs occur again. 
+
+
 <img width="498" alt="Screen Shot 2022-03-26 at 2 00 29 PM" src="https://user-images.githubusercontent.com/25594064/160253511-47173ebb-df0b-4747-b54e-31ec7a449a99.png">
 
 
