@@ -30,3 +30,13 @@ Storing the results of expensive function calls and returning the cached result 
 
 
 <img width="518" alt="Screen Shot 2022-03-26 at 2 02 25 PM" src="https://user-images.githubusercontent.com/25594064/160253566-58489865-91f5-4310-9a30-ce88f1e6a593.png">
+
+#### Memoized time complexity 
+Memoized version has much better time complexity. It grows linearly which will be O(n). 
+
+### Tabulation: A bottom up approach
+The approach above is working top down. Working from the top of the tree to the bottom for example going from fib(7), fib(6), fib(5),...fib(1). 
+
+Tabulation: storing the result of a previous result in a "table" (usually an array). Usually done using **iteration**. Better **space complexity** can be achieved using tabulation. 
+
+<img width="540" alt="Screen Shot 2022-03-28 at 4 59 29 PM" src="https://user-images.githubusercontent.com/25594064/160494354-023e3a82-f33e-4ed0-aa56-21027a84d059.png">
