@@ -1,6 +1,8 @@
 # Tree Traversal
 Traversing a tree means visiting every node on the tree once.
 
+We can use BFS and DFS to traverse the tree. 
+
 ## Types:
 1. Breadth First Search
 2. Depth First Search
@@ -16,7 +18,7 @@ To implement BFS, we use queues. We start by adding the root node to the queue. 
 3. Queue its left and right parameters to the queue
 
 ```javascript
-// Inside Binary Search Classs from previous section
+// Inside Binary Search Class from previous section
     BFS() {
         let node = this.root;
 	let queue = [];
@@ -58,7 +60,7 @@ We implement DFS recursively. When we encounter a node, we can do things in thre
 	3. Encounter the right node
 
 ```javascript
-// Inside Binary Search Classs from previous section
+// Inside Binary Search Class from previous section
     DFSPreOrder() {
         let list = [];
 
