@@ -48,8 +48,8 @@ Subset of Binary Trees. Every child to the left of a node is smaller than parent
 ### Implementation
 ```javascript
 class Node {
-    constructor(data) {
-        this.value = value;
+    constructor(val) {
+        this.val = val;
         this.left = null;
         this.right = null;
     }
