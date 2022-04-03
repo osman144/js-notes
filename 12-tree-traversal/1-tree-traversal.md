@@ -38,23 +38,26 @@ To implement BFS, we use queues. We start by adding the root node to the queue. 
 ```
 
 ## DFS:
+https://www.youtube.com/watch?v=WLvU5EQVZqY
 
 We implement DFS recursively. When we encounter a node, we can do things in three different ways
 
 1. PreOrder:
-
+	**Tip**: This one is the "normal" one where you just go down the tree and record the node as you visit it. Print the nodes as you visit them for the first time. 
 	1. Add the node value to the list.
 	2. Encounter the left node
 	3. Encounter the right node
+	4. 
+<img width="300" alt="Screen Shot 2022-04-03 at 1 14 23 AM" src="https://user-images.githubusercontent.com/25594064/161414451-6745f25b-6ad3-42a6-bc64-a1885bfad7aa.png">
 
 2. PostOrder
-	
+	**Tip**: For Post-order, print the nodes when you visit them for the last time or third time.
 	1. Encounter the left node
 	2. Encounter the right node
 	3. Add the node value to the list
 
 3. InOrder
-	
+	**Tip**: Only record node once we've visited or "seen" it twice. Print the nodes only when you visit them for the second time. 
 	1. Encounter the left node
 	2. Add the node value to the list
 	3. Encounter the right node
