@@ -10,7 +10,7 @@ Binary Heaps are either MaxBinaryHeaps or MinBinaryHeaps with parents either bei
 
 * **Min Binary Heap**: The parent nodes are always smaller than the child nodes. Every child node after the root should be greater. 
 
-* **Max Binary Heap**: The parent nodes are always greater than the child nodes. The root is the largest node in the tree. Every child after the root should be smaller. Each parent has at most two child nodes. The value of each parent node is always greater than its child node. In a max binary heap, the parent is greater than the children but there are no guarantees between sibling nodes. 
+* **Max Binary Heap**: The parent nodes are always greater than the child nodes. The root is the largest node in the tree. 
 	- All the children of each node are as full as they can be and left children are filled out first.   
 
 ## Representation
