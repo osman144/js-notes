@@ -58,12 +58,17 @@ We implement DFS recursively. When we encounter a node, we can do things in thre
 	2. Encounter the right node
 	3. Add the node value to the list
 
+<img width="300" alt="Screen Shot 2022-04-03 at 2 05 33 AM" src="https://user-images.githubusercontent.com/25594064/161415969-dda1cc91-b2f5-4974-941d-53a4df9633bc.png">
+
 3. InOrder
 
 	**Tip**: Only record node once we've visited or "seen" it twice. Print the nodes only when you visit them for the second time. 
 	1. Encounter the left node
 	2. Add the node value to the list
 	3. Encounter the right node
+
+<img width="300" alt="Screen Shot 2022-04-03 at 2 22 38 AM" src="https://user-images.githubusercontent.com/25594064/161416468-b1343d10-3639-4e4d-98be-b107445a27f4.png">
+
 
 ```javascript
 // Inside Binary Search Class from previous section
