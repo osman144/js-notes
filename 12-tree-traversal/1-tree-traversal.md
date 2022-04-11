@@ -24,6 +24,8 @@ To implement BFS, we use queues. We start by adding the root node to the queue. 
 	let queue = [];
 	let data = [];
 	
+	if(this.root === null) return data; 
+	
 	queue.push(node);
 	while(queue.length){
 		// Shift removes value from queue 
