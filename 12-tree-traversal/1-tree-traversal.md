@@ -50,7 +50,7 @@ We implement DFS recursively. When we encounter a node, we can do things in thre
 	1. Add the node value to the list.
 	2. Encounter the left node
 	3. Encounter the right node
-	4. 
+
 <img width="300" alt="Screen Shot 2022-04-03 at 1 14 23 AM" src="https://user-images.githubusercontent.com/25594064/161414451-6745f25b-6ad3-42a6-bc64-a1885bfad7aa.png">
 
 2. PostOrder
@@ -77,34 +77,35 @@ We implement DFS recursively. When we encounter a node, we can do things in thre
     DFSPreOrder() {
         let list = [];
 
-        function searchRecursive(node) {
-            list.push(node.data);
-            if (node.left != null) searchRecursive(node.left)
+        function traverse(node){
+            list.push(node.val);
+            if(node.left) traverse(node.left);
             if (node.right != null) searchRecursive(node.right)
         }
-        searchRecursive(this.root);
+        traverse(this.root);
         return list;
     }
+    
     DFSPostOrder() {
         let list = [];
 
-        function searchRecursive(node) {
-            if (node.left != null) searchRecursive(node.left)
-            if (node.right != null) searchRecursive(node.right)
-            list.push(node.data);
+        function traverse(node){
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+            list.push(node.val);
         }
-        searchRecursive(this.root);
+        traverse(this.root);
         return list;
     }
     DFSInOrder() {
         let list = [];
 
-        function searchRecursive(node) {
-            if (node.left != null) searchRecursive(node.left)
-            list.push(node.data);
-            if (node.right != null) searchRecursive(node.right)
+        function traverse(node){
+            if(node.left) traverse(node.left);
+            list.push(node.val)
+            if(node.right) traverse(node.right) 
         }
-        searchRecursive(this.root);
+        traverse(this.root);
         return list;
     }
 ```
