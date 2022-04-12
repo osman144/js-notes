@@ -80,7 +80,7 @@ We implement DFS recursively. When we encounter a node, we can do things in thre
         function traverse(node){
             list.push(node.val);
             if(node.left) traverse(node.left);
-            if (node.right != null) searchRecursive(node.right)
+            if(node.right) traverse(node.right);
         }
         traverse(this.root);
         return list;
