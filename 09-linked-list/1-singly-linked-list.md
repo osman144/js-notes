@@ -176,6 +176,17 @@ class SinglyLinkedList {
         }
         return this;
     }
+    
+    // print to help visualize solution
+    print(){
+    let arr = [];
+    let current = this.head;
+    while(current){
+      arr.push(current.val);
+      current = current.next
+    }
+    console.log(arr)
+    }
 }
 
 let list = new SinglyLinkedList()
