@@ -5,6 +5,10 @@ Interconnected Nodes. Superset of trees.
 
 ![Trees](./graphs.png)
 
+<img src="https://user-images.githubusercontent.com/25594064/190874467-ea893860-4e0f-4d2c-8fcf-0a6d0c638d80.png" alt="drawing" width="600"/>
+
+
+
 ## Use
 1. Social Network
 2. Networks (Routing Algorithms)
