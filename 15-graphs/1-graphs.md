@@ -48,6 +48,8 @@ There are two ways of representing graphs:
 
 1. Adjacency Matrix:
 
+In this Matrix, A is connected to B and F so it'll show a "1" meaning true. 
+
 <img width="400" alt="Screen Shot 2022-03-15 at 8 42 58 PM" src="https://user-images.githubusercontent.com/25594064/158499921-3ef7b3f2-631c-4443-bd56-ab8c28b0a688.png">
 
 
