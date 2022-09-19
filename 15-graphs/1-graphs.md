@@ -41,6 +41,9 @@ In trees, to go from one node to another, there is only one path whereas for gra
 <img width="250" alt="Screen Shot 2022-03-14 at 11 45 45 PM" src="https://user-images.githubusercontent.com/25594064/158308320-b6914d85-e9f4-4069-9e33-e90589dd5a12.png">
 
 ## Representing Graphs
+
+To store a graph, would firstly need the edges and vertices of a graph. They're stored using an Adjacency Matrix or an Adjacency List. 
+
 There are two ways of representing graphs:
 
 1. Adjacency Matrix:
