@@ -189,6 +189,10 @@ class Graph {
 	    }
 	    delete this.adjacencyList[vertex];
 	}
+	
+	showGraph(){
+	    console.log(this.adjacencyList);
+	}
 }
 
 ```
