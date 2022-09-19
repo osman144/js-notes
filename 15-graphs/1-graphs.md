@@ -74,6 +74,17 @@ The matrix for the above graph would be:
 	F	1	0	0	0	1	0
 ```
 
+```javascript
+var adjMat = [
+  [0, 1, 0, 0, 0, 1],
+  [1, 0, 1, 0, 0, 0],
+  [0, 1, 0, 1, 0, 0],
+  [0, 0, 1, 0, 1, 0],
+  [0, 0, 0, 1, 0, 1],
+  [1, 0, 0, 0, 1, 0]
+]
+```
+
 2. Adjacency List:
 
 <img width="350" alt="Screen Shot 2022-03-15 at 8 54 26 PM" src="https://user-images.githubusercontent.com/25594064/158501137-f10776f4-3d6d-48db-a0ed-d5ab2525ffc2.png">
