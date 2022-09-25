@@ -18,6 +18,8 @@ Interconnected Nodes. Superset of trees.
 ## Graphs vs Trees:
 In trees, to go from one node to another, there is only one path whereas for graphs, there may be multiple paths.
 
+Every tree is a graph, but not every graph is a tree.
+
 ## Terminology
 
 <img width="250" alt="Screen Shot 2022-03-15 at 8 32 10 PM" src="https://user-images.githubusercontent.com/25594064/158498994-d356c377-25f0-45bc-a464-5353b545b3ab.png">
