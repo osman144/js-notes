@@ -18,7 +18,12 @@ Graph Traversal Common Uses:
 ## Depth First Search
 Going deep from parent to child down one path before choosing another. Or in the case of a graph structure, following the neighbors and continuing to follow neighbors before backtracking. 
 
-Two ways to implement: Iterative and Recursive
+Two ways to implement a DFS: Iterative and Recursive
+
+- When doing DFS, pick a starting point (maybe the lowest value if applicable) and then go down one path, following its neighbors, keep going down one path as this is DFS where we pick a path and follow it to to some destination. 
+- DFS = explore as far as possible down one branch before "backtracking".
+- For DFS its important to remember where visited so can backtrack as needed. 
+
 
 ### DFS Implementation
 ```javascript
