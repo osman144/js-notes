@@ -1,8 +1,12 @@
 # Graph Traversal
 Traversal generally means visiting/updating/checking each vertex in a graph. It does not necessarily mean were searching for something. 
 
+Unlike a tree there is no "head" or root starting point. Can choose any point to start from. 
+
+Sometimes usually have to do backtracking or re-visit a node you've already been to unlike a tree. 
+
 ### Use Case
-Graph Traversal Uses:
+Graph Traversal Common Uses:
 1. Peer to peer networking
 2. Web crawlers
 3. Find "closest" matches/recommendations
@@ -13,6 +17,8 @@ Graph Traversal Uses:
 
 ## Depth First Search
 Going deep from parent to child down one path before choosing another. Or in the case of a graph structure, following the neighbors and continuing to follow neighbors before backtracking. 
+
+Two ways to implement: Iterative and Recursive
 
 ### DFS Implementation
 ```javascript
