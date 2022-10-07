@@ -5,6 +5,8 @@ Unlike a tree there is no "head" or root starting point. Can choose any point to
 
 Sometimes usually have to do backtracking or re-visit a node you've already been to unlike a tree. 
 
+**DFS uses a stack data structure in its implementation. BFS will use a queue data structure.**
+
 ### Use Case
 Graph Traversal Common Uses:
 1. Peer to peer networking
