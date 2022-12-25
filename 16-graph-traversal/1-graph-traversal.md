@@ -26,6 +26,13 @@ Two ways to implement a DFS: Iterative and Recursive
 - DFS = explore as far as possible down one branch before "backtracking".
 - For DFS its important to remember where visited so can backtrack as needed. 
 
+## Breadth First Search
+Visiting neighbors of neighbors, essentially. There are layers and levels to a graph, similar to a tree. 
+
+Visiting all the neighbors for a given vertex. Then visiting neighbors of those neighbors. Expanding out. 
+
+When doing BFS, use a queue. Can just use an array and instead use enqueue/dequeue or push and shift methods. Need to add to the end and remove from the beginning. 
+
 
 ### DFS Implementation
 ```javascript
